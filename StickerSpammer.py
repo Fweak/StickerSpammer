@@ -4,10 +4,9 @@ init(convert=True)
 
 class StickerAssult:
     def __init__(self, token, channel):
-        self.token = token
         self.channelId = channel
         self.headers = {
-            'Authorization': self.token,
+            'Authorization': token,
             'via': '1.1 google',
             'Content-Type': 'application/json',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'
@@ -26,7 +25,7 @@ class StickerAssult:
             print(f'[{Fore.CYAN}Sticker Assult{Fore.RESET}] -> {Fore.GREEN}Success{Fore.RESET} : Sent a message')
         elif data.json() and data.json()['retry_after']:
             print(f'[{Fore.CYAN}Sticker Assult{Fore.RESET}] -> {Fore.RED}Error{Fore.RESET} : Rate limited stopping...')
-            input("Just input any key to closeee")
+            input('Press enter to close...')
             exit(0)
             
 if __name__ == "__main__":
